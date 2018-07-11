@@ -29,8 +29,20 @@ const DATA = {
   ]
 };
 
+DATA.items.sort(sortBy('name'))
+
+const listItems = DATA.items.map( (item) => {
+  if(item.type === "mexican")
+    return <li key={item.id}>{item.name}</li>
+})
+
 function Menu() {
-  return <div>Open the console, you have failing tests.</div>;
+  return <div>
+          <h1>{DATA.title}</h1>
+          <ul>
+            {listItems}
+          </ul>
+        </div>;
 }
 
 ReactDOM.render(<Menu />, document.getElementById("app"));
